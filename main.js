@@ -3,17 +3,21 @@
 var nouns = ["cat gifs", "wedding photos", "dank memes", "legal highs",
 "teens", "life hacks", "cysts being popped", "underaged children", "4chan posts",
 "local mums", "halal slaughterhouses", "skinny bitches", "perfectly timed photos",
-"white girls", "dictators", "youths", "jazz musicians", "acid burn victims",
-"crooners", "feet", "goats", "novelty joints"];
+"white girls", "dictators", "youths", "jazz musicians", "acid victims",
+"crooners", "feet", "goats", "novelty joints", "memes", "lol cats", "youtube sensations",
+"ghost stories", "revealing dresses", "nicolas cage gifs", "dwarves of Erebor",
+"slags", "lads", "communists", "sandwich fillings", "bad trips", "holidays in south east asia",
+"rudeboys", "mail order brides"];
 //sometimes articles want more description
 var adjectives = ["cool", "radical", "horrifying", "soothing", "sexy", "arousing",
-"unholy", "fergalicious", "sick", "drole"];
+"unholy", "fergalicious", "sick", "drole", "suave", "yucky", "raging"];
 //stuff for the end of most articles
 //endings that don't need anything adding
 var plainEnd = ["that will blow your mind", "that will make you feel sick",
-"that will add four inches to your dick", "that will make you slim"];
+"that will add four inches to your dick", "that will make you slim", "that will disgust you"];
 //endings with a noun in them
-var nounEnd = ["that will change the way you think of %s", "to stop you from looking at %s"];
+var nounEnd = ["that will change the way you think of %s", "to stop you from looking at %s",
+"that will ruin your late night sessions of masturbating over %s"];
 
 $(document).ready(function(){
   //main method for the button
@@ -26,6 +30,7 @@ $(document).ready(function(){
 function generateTitle(){
   //variable for random number the number 0 will change as I do more varieties of bait
   //might weight it for certain kinds to be more common in the future
+  //the 10 in parse int somehow makes the parseInt better somehow
   var i = parseInt(Math.random() * 1,10);
   if(i == 0){
     return generateListBait();
