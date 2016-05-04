@@ -2,15 +2,18 @@
 //for the subject of most articles
 var nouns = ["cat gifs", "wedding photos", "dank memes", "legal highs",
 "teens", "life hacks", "cysts being popped", "underaged children", "4chan posts",
-];
+"local mums", "halal slaughterhouses", "skinny bitches", "perfectly timed photos",
+"white girls", "dictators", "youths", "jazz musicians", "acid burn victims",
+"crooners", "feet", "goats", "novelty joints"];
 //sometimes articles want more description
-var adjectives = ["cool", "rad", "horrifying", "soothing", "sexy", "arousing"];
+var adjectives = ["cool", "radical", "horrifying", "soothing", "sexy", "arousing",
+"unholy", "fergalicious", "sick", "drole"];
 //stuff for the end of most articles
 //endings that don't need anything adding
-var plainEnd = ["that will blow your mind"];
-//endings with a word in them
-var wordEnd = ["that will change the way you think of %s again"];
-
+var plainEnd = ["that will blow your mind", "that will make you feel sick",
+"that will add four inches to your dick", "that will make you slim"];
+//endings with a noun in them
+var nounEnd = ["that will change the way you think of %s", "to stop you from looking at %s"];
 
 $(document).ready(function(){
   //main method for the button
@@ -47,12 +50,12 @@ function generateListBait(){
 
 //generates an ending for the article like "that will blow your mind!" etc
 function getEnding(){
-  var i = parseInt(Math.random() * 2)
-  if(i == 0){
+  var i = Math.random() * 2
+  if(i <= 1){
     return getWord(plainEnd);
   }
-  else if(i == 1){
-    return getWord(wordEnd).replace("%s", getWord(nouns));
+  else if(i <= 2){
+    return getWord(nounEnd).replace("%s", getWord(nouns));
   }
 }
 
