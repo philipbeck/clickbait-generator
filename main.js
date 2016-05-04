@@ -10,11 +10,13 @@ var nouns = ["cat gifs", "wedding photos", "dank memes", "legal highs",
 "rudeboys", "mail order brides"];
 //sometimes articles want more description
 var adjectives = ["cool", "radical", "horrifying", "soothing", "sexy", "arousing",
-"unholy", "fergalicious", "sick", "drole", "suave", "yucky", "raging"];
+"unholy", "fergalicious", "sick", "drole", "suave", "yucky", "raging", "postulating", "bombastic",
+"politically-correct"];
 //stuff for the end of most articles
 //endings that don't need anything adding
 var plainEnd = ["that will blow your mind", "that will make you feel sick",
-"that will add four inches to your dick", "that will make you slim", "that will disgust you"];
+"that will add four inches to your dick", "that will make you slim", "that will disgust you",
+"that doctors hate", "that mum's love", "which will make you FEEL", "that only 90s kids will remember"];
 //endings with a noun in them
 var nounEnd = ["that will change the way you think of %s", "to stop you from looking at %s",
 "that will ruin your late night sessions of masturbating over %s"];
@@ -50,6 +52,8 @@ function generateListBait(){
   if(Math.random() < 0.8){
     title = title + " " + getEnding();
   }
+  title = randomlyCapitalise(title);
+  title = randomlyAppendPunctuation(title);
   return title;
 }
 
@@ -67,4 +71,39 @@ function getEnding(){
 //gets a String at random out of an array
 function getWord(list){
   return list[parseInt(Math.random() * (list.length), 10)];
+}
+
+//randomly capitalises words
+function randomlyCapitalise(str) {
+    
+    var splitStr = str.split(" ");
+    
+    for(var i = 0; i < splitStr.length; i++) {
+        if(Math.random() < 0.2) {
+            splitStr[i] = splitStr[i].toUpperCase();
+        }
+    }
+    
+    return splitStr.join(" ");
+    
+}
+
+//adds exclamation marks
+function randomlyAppendPunctuation(str) {
+    
+    if(Math.random() < 0.5) {
+    
+        // use same randomisation as above
+        var i = Math.floor(Math.random() * 4) + 1;
+
+        for(var j = 0; j < i; j++) {
+
+            str = str.concat("!");
+
+        }
+    
+    }
+
+    return str;
+    
 }
