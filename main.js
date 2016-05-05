@@ -40,7 +40,7 @@ $(document).ready(function(){
   $("#clickbait-title").text(generateTitle());
   //main method for the button
   $("#generator-button").click(function(){
-    $("#clickbait-title").text(generateTitle());
+    $("#clickbait-title").html(generateTitle());
   });
 });
 
@@ -65,6 +65,10 @@ function generateTitle(){
   //random exclaimation marks are more common
   if(Math.random() < 0.6){
     title = randomlyAppendPunctuation(title);
+  }
+
+  if(Math.random() < 0.04){
+    title = "<a href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\">" + title + "</a>";
   }
 
   return title;
