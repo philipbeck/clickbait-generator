@@ -51,7 +51,7 @@ function generateTitle(){
   //might weight it for certain kinds to be more common in the future
   //the 10 in parse int somehow makes the parseInt better somehow
   var i = Math.random() * 2;
-  if(i <= 1){
+  if(i <= 1.2){
     title = generateListBait();
   }
   else if(i <= 2){
