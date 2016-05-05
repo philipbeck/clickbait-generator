@@ -5,15 +5,19 @@ var nouns = ["cat gifs", "wedding photos", "dank memes", "legal highs",
 "local mums", "halal slaughterhouses", "skinny bitches", "perfectly timed photos",
 "white girls", "dictators", "youths", "jazz musicians", "acid victims",
 "crooners", "feet", "goats", "novelty joints", "memes", "lol cats", "youtube sensations",
-"ghost stories", "revealing dresses", "nicolas cage gifs", "dwarves of Erebor",
+"ghost stories", "revealing dresses", "Nicolas Cage gifs", "dwarves of Erebor",
 "slags", "lads", "communists", "sandwich fillings", "bad trips", "holidays in south east asia",
-"rudeboys", "mail order brides", "doctors", "dildos", "inflatable magaret thatcher dolls",
+"rudeboys", "mail order brides", "doctors", "dildos", "inflatable Magaret Thatcher dolls",
 "sex dolls", "clown outfits", "child celebrities who grew up to become ugly", "body builders",
 "garlic bread memes", "porcelin dolls", "film spoilers", "lesser known superheros"];
 //singular nouns for different kinds of title
 var noun = ["local mum", "thirteen year old boy", "sixty year old grandmother", "neighbour",
 "genious toddler", "quadruple amputee", "porn star", "bride to be", "politcian",
 "local vicar", "elderly war veteran", "teen mum", "man with breast cancer"];
+//singular celebrity names
+var celebrity = ["Justin Beiber", "Nicholas Cage", "Donald Trump", "Nickelback",
+"Bernie Sanders", "Osama bin Laden", "Kanye West", "Brian Blessed", "Rolf Harris",
+"Alan Carr"];
 //doing things
 var verb = ["makes millions on the internet", "defies doctors", "amazes the internet",
 "amazes everyone at wedding"];
@@ -66,7 +70,7 @@ function generateTitle(){
   if(Math.random() < 0.6){
     title = randomlyAppendPunctuation(title);
   }
-
+  //1 in 25 change to add link to never gonna give you up
   if(Math.random() < 0.04){
     title = "<a href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\">" + title + "</a>";
   }
@@ -129,7 +133,7 @@ function getPlainEnd(){
 }
 
 function getNounEnd(){
-  return getWord(nounEnd).replace("%s", getWord(nouns));
+  return getWord(nounEnd).replace("%s", getWordFromMultipleLists([nouns, celebrity]));
 }
 
 function getDoingEnd(){
@@ -144,6 +148,14 @@ function getWord(list){
   return list[parseInt(Math.random() * (list.length), 10)];
 }
 
+//takes a list of lists
+function getWordFromMultipleLists(list){
+  var bigList = [];
+  for (var i = 0; i < list.length; i++){
+    bigList = bigList.concat(list[i]);
+  }
+  return getWord(bigList);
+}
 
 //randomly capitalises words
 function randomlyCapitalise(str) {
