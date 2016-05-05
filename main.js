@@ -7,15 +7,20 @@ var nouns = ["cat gifs", "wedding photos", "dank memes", "legal highs",
 "crooners", "feet", "goats", "novelty joints", "memes", "lol cats", "youtube sensations",
 "ghost stories", "revealing dresses", "nicolas cage gifs", "dwarves of Erebor",
 "slags", "lads", "communists", "sandwich fillings", "bad trips", "holidays in south east asia",
-"rudeboys", "mail order brides", "doctors"];
+"rudeboys", "mail order brides", "doctors", "dildos", "inflatable magaret thatcher dolls",
+"sex dolls", "clown outfits", "child celebrities who grow up to become ugly", "body builders",
+"garlic bread memes"];
 //singular nouns for different kinds of title
-var noun = ["local mum", "thirteen year old boy", "sixty year old mother", "my neighbour"];
+var noun = ["local mum", "thirteen year old boy", "sixty year old mother", "neighbour",
+"old couple", "genious toddler", "quadruple amputee", "porn star", "bride to be",
+"local vicar", "elderly war veteran"];
 //doing things
-var verb = ["makes millions on the internet", "defies doctors"];
+var verb = ["makes millions on the internet", "defies doctors", "amazes the internet",
+"amazes everyone at wedding"];
 //sometimes articles want more description
 var adjectives = ["cool", "radical", "horrifying", "soothing", "sexy", "arousing",
 "unholy", "fergalicious", "sick", "drole", "suave", "yucky", "raging", "postulating", "bombastic",
-"politically-correct"];
+"politically-correct", "cracking", "cute", "amazing", "cute", "lucky", "dench"];
 //stuff for the end of most articles
 //endings that don't need anything adding
 var plainEnd = ["that will blow your mind", "that will make you feel sick",
@@ -23,14 +28,15 @@ var plainEnd = ["that will blow your mind", "that will make you feel sick",
 "that doctors hate", "that mum's love", "which will make you FEEL", "that only 90s kids will remember"];
 //endings with a noun in them
 var nounEnd = ["that will change the way you think of %s", "to stop you from looking at %s",
-"that will ruin your late night sessions of masturbating over %s", "that will make you feel %s"];
+"that will ruin your late night sessions of masturbating over %s"];
 //endings of things that someone does
 var doingEnd = ["with this simple trick", "from home on the internet",
- "without even leaving the house"];
+ "without even leaving the house", "fully clothed"];
 
-var doingNounEnd = ["with nothing but some old %s"];
+var doingNounEnd = ["with nothing but some old %s", "with a webcam and a pair of %s"];
 
 $(document).ready(function(){
+  $("#clickbait-title").text(generateTitle());
   //main method for the button
   $("#generator-button").click(function(){
     $("#clickbait-title").text(generateTitle());
@@ -39,17 +45,16 @@ $(document).ready(function(){
 
 
 function generateTitle(){
+  var title;
   //variable for random number the number 0 will change as I do more varieties of bait
   //might weight it for certain kinds to be more common in the future
   //the 10 in parse int somehow makes the parseInt better somehow
   var i = Math.random() * 2;
-  //less than 1.5 instead of one so it shows up more often than the other one
-  //which has less combinations
-  if(i <= 1.5){
-    return generateListBait();
+  if(i <= 1){
+    title = generateListBait();
   }
   else if(i <= 2){
-    return generateTemptingBait();
+    title = generateTemptingBait();
   }
 
   //happpens quite rarely because random caps is stressful
@@ -60,6 +65,8 @@ function generateTitle(){
   if(Math.random() < 0.6){
     title = randomlyAppendPunctuation(title);
   }
+
+  return title;
 }
 
 //the standard variety of clickbait
@@ -81,6 +88,10 @@ function generateListBait(){
     else if(i <= 2){
       title = title + " " + getNounEnd();
     }
+    //puts an especially thing at the end
+    if(Math.random() < 0.3){
+      title = title + ", especially number " + parseInt(Math.random() * size, 10) + "!";
+    }
   }
   return title;
 }
@@ -88,10 +99,15 @@ function generateListBait(){
 //the kind with something you want
 function generateTemptingBait(){
   var title = "";
-
+  var i = Math.random();
+  //quite rare to get an adjective becuase adjectives on a lot of these ones will
+  //seam weird
+  if(i < 0.3){
+    title = title + getWord(adjectives) + " ";
+  }
   title = title + getWord(noun);
   title = title + " " + getWord(verb);
-  var i = Math.random();
+  i = Math.random();
   i *= 2;
   if(i <= 1){
     title = title + " " + getDoingEnd();
