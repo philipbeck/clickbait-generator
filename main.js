@@ -9,7 +9,7 @@ var nouns = ["cat gifs", "wedding photos", "dank memes", "legal highs",
 "slags", "lads", "communists", "sandwich fillings", "bad trips", "holidays in south east asia",
 "rudeboys", "mail order brides", "doctors"];
 //singular nouns for different kinds of title
-var noun = ["local mum", "13 year old boy", "60 year old mother", "my neighbour"];
+var noun = ["local mum", "thirteen year old boy", "sixty year old mother", "my neighbour"];
 //doing things
 var verb = ["makes millions on the internet", "defies doctors"];
 //sometimes articles want more description
