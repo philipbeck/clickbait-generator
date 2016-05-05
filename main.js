@@ -29,9 +29,16 @@ $(document).ready(function(){
   //main method for the button
   $("#generator-button").click(function(){
     var title = generateTitle();
-    title = randomlyCapitalise(title);
-    title = randomlyAppendPunctuation(title);
+    //happpens quite rarely because random caps is stressful
+    if(Math.random() < 0.25){
+      title = randomlyCapitalise(title);
+    }
+    //random exclaimation marks are more common
+    if(Math.random() < 0.6){
+      title = randomlyAppendPunctuation(title);
+    }
     $("#clickbait-title").text(title);
+    }
   });
 });
 
@@ -95,9 +102,10 @@ function getWord(list){
 function randomlyCapitalise(str) {
 
     var splitStr = str.split(" ");
-
+    //randomly generate how capitalised
+    var density = Math.random();
     for(var i = 0; i < splitStr.length; i++) {
-        if(Math.random() < 0.2) {
+        if(Math.random() < density) {
             splitStr[i] = splitStr[i].toUpperCase();
         }
     }
@@ -108,19 +116,14 @@ function randomlyCapitalise(str) {
 
 //adds exclamation marks
 function randomlyAppendPunctuation(str) {
+      // use same randomisation
+      var i = Math.floor(Math.random() * 4) + 1;
 
-    if(Math.random() < 0.5) {
+      for(var j = 0; j < i; j++) {
 
-        // use same randomisation as above
-        var i = Math.floor(Math.random() * 4) + 1;
+          str = str.concat("!");
 
-        for(var j = 0; j < i; j++) {
-
-            str = str.concat("!");
-
-        }
-
-    }
+      }
 
     return str;
 }
