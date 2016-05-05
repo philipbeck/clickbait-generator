@@ -14,11 +14,13 @@ var noun = ["local mum", "13 year old boy"];
 var verb = ["makes millions on the internet", "defies doctors"];
 //sometimes articles want more description
 var adjectives = ["cool", "radical", "horrifying", "soothing", "sexy", "arousing",
-"unholy", "fergalicious", "sick", "drole", "suave", "yucky", "raging"];
+"unholy", "fergalicious", "sick", "drole", "suave", "yucky", "raging", "postulating", "bombastic",
+"politically-correct"];
 //stuff for the end of most articles
 //endings that don't need anything adding
 var plainEnd = ["that will blow your mind", "that will make you feel sick",
-"that will add four inches to your dick", "that will make you slim", "that will disgust you"];
+"that will add four inches to your dick", "that will make you slim", "that will disgust you",
+"that doctors hate", "that mum's love", "which will make you FEEL", "that only 90s kids will remember"];
 //endings with a noun in them
 var nounEnd = ["that will change the way you think of %s", "to stop you from looking at %s",
 "that will ruin your late night sessions of masturbating over %s"];
@@ -26,7 +28,10 @@ var nounEnd = ["that will change the way you think of %s", "to stop you from loo
 $(document).ready(function(){
   //main method for the button
   $("#generator-button").click(function(){
-    $("#clickbait-title").text(generateTitle());
+    var title = generateTitle();
+    title = randomlyCapitalise(title);
+    title = randomlyAppendPunctuation(title);
+    $("#clickbait-title").text(title);
   });
 });
 
@@ -55,7 +60,10 @@ function generateListBait(){
     var i = Math.random();
     i *= 2;
     if(i <= 1){
-
+      title = title + " " + getPlainEnd();
+    }
+    else if(i <= 2){
+      title = title + " " + getNounEnd();
     }
   }
   return title;
@@ -68,17 +76,7 @@ function generateTemptingBait(){
   return title;
 }
 
-//generates an ending for the article like "that will blow your mind!" etc
-function getEnding(){
-  var i = Math.random() * 2
-  if(i <= 1){
-    return getWord(plainEnd);
-  }
-  else if(i <= 2){
-    return getWord(nounEnd).replace("%s", getWord(nouns));
-  }
-}
-
+//generates an endings for the article like "that will blow your mind!" etc
 function getPlainEnd(){
   return getWord(plainEnd);
 }
@@ -90,4 +88,39 @@ function getNounEnd(){
 //gets a String at random out of an array
 function getWord(list){
   return list[parseInt(Math.random() * (list.length), 10)];
+}
+
+
+//randomly capitalises words
+function randomlyCapitalise(str) {
+
+    var splitStr = str.split(" ");
+
+    for(var i = 0; i < splitStr.length; i++) {
+        if(Math.random() < 0.2) {
+            splitStr[i] = splitStr[i].toUpperCase();
+        }
+    }
+
+    return splitStr.join(" ");
+
+}
+
+//adds exclamation marks
+function randomlyAppendPunctuation(str) {
+
+    if(Math.random() < 0.5) {
+
+        // use same randomisation as above
+        var i = Math.floor(Math.random() * 4) + 1;
+
+        for(var j = 0; j < i; j++) {
+
+            str = str.concat("!");
+
+        }
+
+    }
+
+    return str;
 }
