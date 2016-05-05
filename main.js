@@ -8,19 +8,20 @@ var nouns = ["cat gifs", "wedding photos", "dank memes", "legal highs",
 "ghost stories", "revealing dresses", "nicolas cage gifs", "dwarves of Erebor",
 "slags", "lads", "communists", "sandwich fillings", "bad trips", "holidays in south east asia",
 "rudeboys", "mail order brides", "doctors", "dildos", "inflatable magaret thatcher dolls",
-"sex dolls", "clown outfits", "child celebrities who grow up to become ugly", "body builders",
-"garlic bread memes"];
+"sex dolls", "clown outfits", "child celebrities who grew up to become ugly", "body builders",
+"garlic bread memes", "porcelin dolls", "film spoilers", "lesser known superheros"];
 //singular nouns for different kinds of title
-var noun = ["local mum", "thirteen year old boy", "sixty year old mother", "neighbour",
-"old couple", "genious toddler", "quadruple amputee", "porn star", "bride to be",
-"local vicar", "elderly war veteran"];
+var noun = ["local mum", "thirteen year old boy", "sixty year old grandmother", "neighbour",
+"genious toddler", "quadruple amputee", "porn star", "bride to be", "politcian",
+"local vicar", "elderly war veteran", "teen mum", "man with breast cancer"];
 //doing things
 var verb = ["makes millions on the internet", "defies doctors", "amazes the internet",
 "amazes everyone at wedding"];
 //sometimes articles want more description
 var adjectives = ["cool", "radical", "horrifying", "soothing", "sexy", "arousing",
 "unholy", "fergalicious", "sick", "drole", "suave", "yucky", "raging", "postulating", "bombastic",
-"politically-correct", "cracking", "cute", "amazing", "cute", "lucky", "dench"];
+"politically-correct", "cracking", "cute", "amazing", "cute", "lucky", "dench", "creepy",
+"ravishing"];
 //stuff for the end of most articles
 //endings that don't need anything adding
 var plainEnd = ["that will blow your mind", "that will make you feel sick",
@@ -28,7 +29,7 @@ var plainEnd = ["that will blow your mind", "that will make you feel sick",
 "that doctors hate", "that mum's love", "which will make you FEEL", "that only 90s kids will remember"];
 //endings with a noun in them
 var nounEnd = ["that will change the way you think of %s", "to stop you from looking at %s",
-"that will ruin your late night sessions of masturbating over %s"];
+"that will ruin your late night sessions of masturbating over %s", "that will make you lose your faith in %s"];
 //endings of things that someone does
 var doingEnd = ["with this simple trick", "from home on the internet",
  "without even leaving the house", "fully clothed"];
