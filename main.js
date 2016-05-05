@@ -38,7 +38,6 @@ $(document).ready(function(){
       title = randomlyAppendPunctuation(title);
     }
     $("#clickbait-title").text(title);
-    }
   });
 });
 
