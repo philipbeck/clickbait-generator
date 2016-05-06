@@ -42,7 +42,7 @@ var doingNounEnd = ["with nothing but some old %s", "with a webcam and a pair of
 
 $(document).ready(function(){
   $("#clickbait-title").html(generateTitle());
-  
+
   //main method for the button
   $("#generator-button").click(function(){
     $("#clickbait-title").html(generateTitle());
@@ -73,7 +73,7 @@ function generateTitle(){
   }
   //1 in 25 change to add link to never gonna give you up
   if(Math.random() < 0.04){
-    title = "<a href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\">" + title + "</a>";
+    title = "<a href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" target=\"_blank\">" + title + "</a>";
   }
 
   return title;
