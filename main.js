@@ -64,6 +64,15 @@ $(document).ready(function(){
       console.error('Trigger:', e.trigger);
   });
 
+  $(".share-twitter").click(function(){
+    var text = $("#clickbait-title").text();
+    var encodedText = encodeURI(text);
+    // concatenate twitter link (as per their docs: https://dev.twitter.com/web/tweet-button)
+    var twitterLink = 'https://twitter.com/home?status=' + encodedText;
+    window.open(twitterLink);
+
+  });
+
 });
 
 
