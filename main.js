@@ -41,7 +41,8 @@ var doingEnd = ["with this simple trick", "from home on the internet",
 var doingNounEnd = ["with nothing but some old %s", "with a webcam and a pair of %s"];
 
 $(document).ready(function(){
-  $("#clickbait-title").text(generateTitle());
+  $("#clickbait-title").html(generateTitle());
+  
   //main method for the button
   $("#generator-button").click(function(){
     $("#clickbait-title").html(generateTitle());
