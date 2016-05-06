@@ -4,13 +4,17 @@
   <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 <body>
-  <div id="main">
-    <h1>Clickbait Generator</h1>
-    <p id="clickbait-title">clickbait goes here</p>
-    <button type="button" id="generator-button">click4bait</button>
+  <div class="container">
+    <p class="generate unselectable" id="clickbait-title">clickbait goes here</p>
+    <a class="generate button unselectable" href="#">click4bait</a>
+    <p class="copyable-bait"></p>
+    <a class="copy-to-clipboard button unselectable" href="#" data-clipboard-target=".copyable-bait">copy da bait</a>
+    <a class="share-twitter button unselectable" href="#">tweet dis</a>
+
   </div>
 
   <script src="dependencies/jquery-2.2.3.min.js"></script>
+  <script src="dependencies/clipboard.min.js"></script>
 
   <script src="main.js"></script>
 </body>

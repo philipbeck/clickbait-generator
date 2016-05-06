@@ -40,13 +40,41 @@ var doingEnd = ["with this simple trick", "from home on the internet",
 
 var doingNounEnd = ["with nothing but some old %s", "with a webcam and a pair of %s"];
 
+
 $(document).ready(function(){
-  $("#clickbait-title").text(generateTitle());
+  $("#clickbait-title").html(generateTitle());
+  $(".copyable-bait").text($("#clickbait-title").text());
+
   //main method for the button
-  $("#generator-button").click(function(){
+  $(".generate").click(function(){
     $("#clickbait-title").html(generateTitle());
+    $(".copyable-bait").html($("#clickbait-title").text());
   });
+
+  var clipboard = new Clipboard(".copy-to-clipboard");
+
+  clipboard.on('success', function(e) {
+      alert("Copied tasty click bait! Enjoy");
+
+      e.clearSelection();
+  });
+
+  clipboard.on('error', function(e) {
+      console.error('Action:', e.action);
+      console.error('Trigger:', e.trigger);
+  });
+
+  $(".share-twitter").click(function(){
+    var text = $("#clickbait-title").text();
+    var encodedText = encodeURI(text);
+    // concatenate twitter link (as per their docs: https://dev.twitter.com/web/tweet-button)
+    var twitterLink = 'https://twitter.com/home?status=' + encodedText;
+    window.open(twitterLink);
+
+  });
+
 });
+
 
 
 function generateTitle(){
@@ -72,7 +100,7 @@ function generateTitle(){
   }
   //1 in 25 change to add link to never gonna give you up
   if(Math.random() < 0.04){
-    title = "<a href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\">" + title + "</a>";
+    title = "<a href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" target=\"_blank\">" + title + "</a>";
   }
 
   return title;
