@@ -44,7 +44,7 @@ $(document).ready(function(){
   $("#clickbait-title").html(generateTitle());
 
   //main method for the button
-  $("#generator-button").click(function(){
+  $(".generate").click(function(){
     $("#clickbait-title").html(generateTitle());
   });
 });
