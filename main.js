@@ -40,14 +40,32 @@ var doingEnd = ["with this simple trick", "from home on the internet",
 
 var doingNounEnd = ["with nothing but some old %s", "with a webcam and a pair of %s"];
 
+
 $(document).ready(function(){
   $("#clickbait-title").html(generateTitle());
+  $(".copyable-bait").text($("#clickbait-title").text());
 
   //main method for the button
   $(".generate").click(function(){
     $("#clickbait-title").html(generateTitle());
+    $(".copyable-bait").html($("#clickbait-title").text());
   });
+
+  var clipboard = new Clipboard(".copy-to-clipboard");
+
+  clipboard.on('success', function(e) {
+      alert("Copied tasty click bait! Enjoy");
+
+      e.clearSelection();
+  });
+
+  clipboard.on('error', function(e) {
+      console.error('Action:', e.action);
+      console.error('Trigger:', e.trigger);
+  });
+
 });
+
 
 
 function generateTitle(){

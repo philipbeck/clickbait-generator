@@ -17,6 +17,24 @@
     color: #f9f9f9 !important;
     text-decoration: none;
     border-radius: 10px;
+    display: block;
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 320px;
+    border: 2px solid #333;
+
+}
+
+.copyable-bait {
+    font-size: 1px !important;
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    margin-left: -1000px;
 }
 
 a:visited{
