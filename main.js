@@ -4,11 +4,11 @@ var nouns = ["cat gifs", "wedding photos", "dank memes", "legal highs",
 "teens", "life hacks", "cysts being popped", "underaged children", "4chan posts",
 "local mums", "halal slaughterhouses", "skinny bitches", "perfectly timed photos",
 "white girls", "dictators", "youths", "jazz musicians", "acid victims",
-"crooners", "feet", "goats", "novelty joints", "memes", "lol cats", "youtube sensations",
-"ghost stories", "revealing dresses", "Nicolas Cage gifs", "dwarves of Erebor",
-"slags", "lads", "communists", "sandwich fillings", "bad trips", "holidays in south east asia",
+"crooners", "feet", "goats", "memes", "lol cats", "youtube sensations", "ghost stories",
+"revealing dresses", "Nicolas Cage gifs", "dwarves of Erebor", "slags", "lads",
+"communists", "sandwich fillings", "bad trips", "holidays in south east asia",
 "rudeboys", "mail order brides", "doctors", "dildos", "inflatable Magaret Thatcher dolls",
-"sex dolls", "clown outfits", "child celebrities who grew up to become ugly", "body builders",
+"sex dolls", "clown outfits", "child celebrities who grew up to become ugly",
 "garlic bread memes", "porcelin dolls", "film spoilers", "lesser known superheros",
 "strains of cannabis", "cosplays", "comebacks", "male grooming hacks", "scrubs moments",
 "northumbria students", "taco bowls", "genocides"];
@@ -20,15 +20,15 @@ var noun = ["local mum", "thirteen year old boy", "sixty year old grandmother", 
 var celebrity = ["Justin Beiber", "Nicholas Cage", "Donald Trump", "Nickelback",
 "Bernie Sanders", "Osama bin Laden", "Kanye West", "Brian Blessed", "Rolf Harris",
 "Alan Carr", "Jimmy Saville", "Nigel Farage", "Paul Chuckle", "Barry Chuckle",
-"Nicola Sturgeon", "Ron Jeremy"];
+"Nicola Sturgeon", "Ron Jeremy", "Bob Ross"];
 //doing things
 var verb = ["makes millions on the internet", "defies doctors", "amazes the internet",
 "amazes everyone at wedding", "loses 4 stone in a week"];
 //sometimes articles want more description
 var adjectives = ["cool", "radical", "horrifying", "soothing", "sexy", "arousing",
-"unholy", "fergalicious", "sick", "drole", "suave", "yucky", "raging", "postulating",
- "bombastic", "politically-correct", "cracking", "cute", "amazing", "cute", "lucky",
-"dench", "creepy", "ravishing", "dank"];
+"unholy", "fergalicious", "sick", "drole", "suave", "raging", "bombastic", "politically-correct",
+"cracking", "cute", "amazing", "cute", "lucky", "dench", "creepy", "ravishing",
+ "dank"];
 //stuff for the end of most articles
 //endings that don't need anything adding
 var plainEnd = ["that will blow your mind", "that will make you feel sick",
