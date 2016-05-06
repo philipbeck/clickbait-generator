@@ -9,7 +9,9 @@ var nouns = ["cat gifs", "wedding photos", "dank memes", "legal highs",
 "slags", "lads", "communists", "sandwich fillings", "bad trips", "holidays in south east asia",
 "rudeboys", "mail order brides", "doctors", "dildos", "inflatable Magaret Thatcher dolls",
 "sex dolls", "clown outfits", "child celebrities who grew up to become ugly", "body builders",
-"garlic bread memes", "porcelin dolls", "film spoilers", "lesser known superheros"];
+"garlic bread memes", "porcelin dolls", "film spoilers", "lesser known superheros",
+"strains of cannabis", "cosplays", "comebacks", "male grooming hacks", "scrubs moments",
+"northumbria students", "taco bowls", "genocides"];
 //singular nouns for different kinds of title
 var noun = ["local mum", "thirteen year old boy", "sixty year old grandmother", "neighbour",
 "genious toddler", "quadruple amputee", "porn star", "bride to be", "politcian",
@@ -17,20 +19,22 @@ var noun = ["local mum", "thirteen year old boy", "sixty year old grandmother", 
 //singular celebrity names
 var celebrity = ["Justin Beiber", "Nicholas Cage", "Donald Trump", "Nickelback",
 "Bernie Sanders", "Osama bin Laden", "Kanye West", "Brian Blessed", "Rolf Harris",
-"Alan Carr"];
+"Alan Carr", "Jimmy Saville", "Nigel Farage", "Paul Chuckle", "Barry Chuckle",
+"Nicola Sturgeon", "Ron Jeremy"];
 //doing things
 var verb = ["makes millions on the internet", "defies doctors", "amazes the internet",
-"amazes everyone at wedding"];
+"amazes everyone at wedding", "loses 4 stone in a week"];
 //sometimes articles want more description
 var adjectives = ["cool", "radical", "horrifying", "soothing", "sexy", "arousing",
-"unholy", "fergalicious", "sick", "drole", "suave", "yucky", "raging", "postulating", "bombastic",
-"politically-correct", "cracking", "cute", "amazing", "cute", "lucky", "dench", "creepy",
-"ravishing"];
+"unholy", "fergalicious", "sick", "drole", "suave", "yucky", "raging", "postulating",
+ "bombastic", "politically-correct", "cracking", "cute", "amazing", "cute", "lucky",
+"dench", "creepy", "ravishing", "dank"];
 //stuff for the end of most articles
 //endings that don't need anything adding
 var plainEnd = ["that will blow your mind", "that will make you feel sick",
 "that will add four inches to your dick", "that will make you slim", "that will disgust you",
-"that doctors hate", "that mum's love", "which will make you FEEL", "that only 90s kids will remember"];
+"that doctors hate", "that mum's love", "which will make you FEEL", "that only 90s kids will remember",
+"that will make you feel feelings"];
 //endings with a noun in them
 var nounEnd = ["that will change the way you think of %s", "to stop you from looking at %s",
 "that will ruin your late night sessions of masturbating over %s", "that will make you lose your faith in %s"];
@@ -127,7 +131,8 @@ function generateListBait(){
     }
     //puts an especially thing at the end
     if(Math.random() < 0.3){
-      title = title + ", especially number " + parseInt(Math.random() * size, 10) + "!";
+      //numbers between 5 and the nunmber of elements in the list
+      title = title + ", especially number " + parseInt(Math.random() * (size-5) + 5, 10) + "!";
     }
   }
   return title;
@@ -171,6 +176,7 @@ function getDoingEnd(){
 function getDoingNounEnd(){
   return getWord(doingNounEnd).replace("%s", getWord(nouns));
 }
+
 //gets a String at random out of an array
 function getWord(list){
   return list[parseInt(Math.random() * (list.length), 10)];
