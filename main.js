@@ -101,7 +101,7 @@ function generateTitle(){
   }
 
   //happpens quite rarely because random caps is stressful
-  if(Math.random() < 0.25){
+  if(Math.random() < 0.15){
     title = randomlyCapitalise(title);
   }
   //random exclaimation marks are more common
